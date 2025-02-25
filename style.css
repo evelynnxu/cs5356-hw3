@@ -40,7 +40,7 @@ main {
 
 /* 图片样式 */
 .about img {
-    width: 100%;
+    width: 300%;
     max-width: 200px;
     border-radius: 50%;
 }
