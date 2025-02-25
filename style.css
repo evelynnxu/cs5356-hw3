@@ -41,7 +41,7 @@ main {
 /* 图片样式 */
 .about img {
     width: 300%;
-    max-width: 200px;
+    max-width: 1000px;
     border-radius: 50%;
 }
 
