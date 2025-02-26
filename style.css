@@ -11,88 +11,103 @@ body {
 }
 
 nav {
-    background-color: #fff;
-    padding: 10px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    background-color: #f8f8f8;
+    padding-top: 30px;
     position: fixed;
-    width: 100%;
+    left: 0;
     top: 0;
-    z-index: 1000;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 nav ul {
     list-style: none;
-    display: flex;
-    justify-content: center;
-    margin: 0;
     padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: center;
 }
 
 nav ul li {
-    margin: 0 15px;
+    padding: 15px 0;
 }
 
 nav ul li a {
     text-decoration: none;
     color: #333;
     font-weight: bold;
+    font-size: 16px;
+    display: block;
+    transition: 0.3s;
 }
 
-header {
-    background-image: url('path/to/your/banner-image.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #fff;
+nav ul li a:hover {
+    background-color: #ddd;
 }
 
-header h1 {
-    font-size: 3em;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px;
+/* 主页主要内容区域 */
+main {
+    margin-left: 260px; /* 预留侧边栏空间 */
+    padding: 40px;
+    flex-grow: 1;
 }
 
-section {
-    padding: 60px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+/* 标题 */
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
 }
 
-#portfolio .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.gallery-item {
-    overflow: hidden;
-}
-
-.gallery-item img {
+/* 作品图片 */
+.portfolio-image {
     width: 100%;
-    height: auto;
-    transition: transform 0.3s ease;
+    max-width: 800px;
+    display: block;
+    margin: 20px auto;
 }
 
-.gallery-item img:hover {
-    transform: scale(1.05);
-}
-
+/* 页脚 */
 footer {
+    margin-left: 260px; /* 让页脚不被导航栏遮挡 */
     background-color: #333;
     color: #fff;
     text-align: center;
-    padding: 20px 0;
+    padding: 20px;
 }
 
-
-/* 响应式调整 */
+/* 响应式布局 */
 @media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    nav {
+        width: 100%;
+        height: auto;
+        position: relative;
+        box-shadow: none;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: center;
+    }
+
+    nav ul li {
+        padding: 10px 20px;
+    }
+
     main {
-        grid-template-columns: 1fr;
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    footer {
+        margin-left: 0;
     }
 }
+
