@@ -1,28 +1,66 @@
 document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("fetch-quote").addEventListener("click", fetchRandomQuote);
+    document.getElementById("fetch-weather").addEventListener("click", fetchNewYorkWeather);
 });
 
-function fetchRandomQuote() {
-    fetch("https://api.allorigins.win/raw?url=https://zenquotes.io/api/random")
-        .then(response => response.json())  // 解析 JSON
+function fetchNewYorkWeather() {
+    // Open-Meteo API: Get real-time weather for New York
+    fetch("https://api.open-meteo.com/v1/forecast?latitude=40.7128&longitude=-74.0060&current_weather=true&timezone=America/New_York")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Network error: " + response.statusText);
+            }
+            return response.json();
+        })
         .then(data => {
-            console.log("Fetched Quote Data:", data);  // ✅ 在 Console 里检查数据
-            const quoteData = data[0];  // API 返回的是数组，取第一个元素
+            console.log("New York Weather Data:", data); // ✅ Check data in the console
 
-            const quote = quoteData.q;   // 名言
-            const author = quoteData.a;  // 作者
+            // Parse weather data
+            const temperature = data.current_weather.temperature; // Temperature (°C)
+            const windspeed = data.current_weather.windspeed; // Wind speed (km/h)
+            const weathercode = data.current_weather.weathercode; // Weather code
 
-            document.getElementById("quote-container").innerHTML = `
-                <blockquote>
-                    <p>"${quote}"</p>
-                    <cite>- ${author}</cite>
-                </blockquote>
+            // Convert weather code to description
+            const weatherDescription = getWeatherDescription(weathercode);
+
+            // Update HTML page
+            document.getElementById("weather-container").innerHTML = `
+                <div class="weather-card">
+                    <h2>Current Weather in New York</h2>
+                    <p>Temperature: ${temperature}°C</p>
+                    <p>Wind Speed: ${windspeed} km/h</p>
+                    <p>Weather Condition: ${weatherDescription}</p>
+                </div>
             `;
         })
         .catch(error => {
-            console.error("Error fetching quote:", error);
-            document.getElementById("quote-container").innerHTML = `<p>⚠️ 获取名言失败，请稍后再试。</p>`;
+            console.error("Failed to fetch weather:", error);
+            document.getElementById("weather-container").innerHTML = `<p>⚠️ Failed to fetch weather, please try again later.</p>`;
         });
+}
+
+// Convert Open-Meteo API weather codes to readable text
+function getWeatherDescription(code) {
+    const weatherDescriptions = {
+        0: "Clear sky",
+        1: "Mainly clear",
+        2: "Partly cloudy",
+        3: "Overcast",
+        45: "Fog",
+        48: "Dense fog",
+        51: "Light drizzle",
+        53: "Moderate drizzle",
+        55: "Heavy drizzle",
+        61: "Light rain",
+        63: "Moderate rain",
+        65: "Heavy rain",
+        80: "Light showers",
+        81: "Moderate showers",
+        82: "Heavy showers",
+        95: "Thunderstorm",
+        96: "Thunderstorm with light hail",
+        99: "Thunderstorm with heavy hail"
+    };
+    return weatherDescriptions[code] || "Unknown weather";
 }
 
 
