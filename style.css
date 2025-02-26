@@ -1,4 +1,4 @@
-/* 全局样式 */
+/* Global Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -10,7 +10,7 @@ body {
     background-color: #f4f4f4;
 }
 
-/* 头部 */
+/* Header */
 header {
     width: 100%;
     background-color: #333;
@@ -19,18 +19,18 @@ header {
     padding: 20px;
 }
 
-/* 主体内容 */
+/* Main Layout - Using Grid for better responsiveness */
 main {
     display: grid;
-    grid-template-columns: 1fr; /* 让所有 section 垂直排列 */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
     padding: 20px;
     max-width: 1200px;
     width: 100%;
 }
 
-/* 个人信息区域 */
-.About, .Contact, .Quotes {
+/* Section Styling */
+.About, .Contact, .Weather {
     background: white;
     padding: 20px;
     border-radius: 10px;
@@ -38,21 +38,15 @@ main {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* 图片样式 */
-.about img {
+/* Image Styling */
+.About img {
     width: 100%;
     max-width: 200px;
     border-radius: 50%;
-    transition: filter 1s ease-in-out;
 }
 
-.about img:hover {
-    transform: rotate3d(1, 1, 0, 180deg); /* 沿 X 轴和 Y 轴 3D 旋转 */
-}
-
-
-/* 按钮样式 */
-#fetch-weather {
+/* Button Styling */
+button {
     padding: 10px 20px;
     font-size: 16px;
     background-color: #007bff;
@@ -60,14 +54,14 @@ main {
     border: none;
     cursor: pointer;
     border-radius: 5px;
-    margin: 20px 0;
+    margin: 10px 0;
 }
 
-#fetch-weather:hover {
+button:hover {
     background-color: #0056b3;
 }
 
-/* 天气信息卡片 */
+/* Weather Card Styling */
 .weather-card {
     display: flex;
     flex-direction: column;
@@ -89,8 +83,7 @@ main {
     color: #555;
 }
 
-
-/* 页脚 */
+/* Footer */
 footer {
     width: 100%;
     background-color: #333;
@@ -100,9 +93,22 @@ footer {
     margin-top: 20px;
 }
 
-/* 响应式调整 */
+/* Responsive Design Adjustments */
 @media (max-width: 768px) {
     main {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 375px) {
+    main {
+        padding: 10px;
+    }
+    .About img {
+        max-width: 150px;
+    }
+    button {
+        font-size: 14px;
+        padding: 8px 16px;
     }
 }
