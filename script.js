@@ -3,7 +3,7 @@ document.getElementById("fetch-quote").addEventListener("click", fetchRandomQuot
 
 // 从 API 获取随机名言
 function fetchRandomQuote() {
-    fetch("https://api.quotable.io/random")
+    fetch("https://zenquotes.io/api/random")
         .then(response => response.json())  // 解析 JSON
         .then(data => {
             // 提取名言和作者
