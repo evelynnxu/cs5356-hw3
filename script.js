@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function fetchRandomQuote() {
-    fetch("https://zenquotes.io/api/random")
+    fetch("https://api.allorigins.win/raw?url=https://zenquotes.io/api/random")
         .then(response => response.json())  // 解析 JSON
         .then(data => {
             console.log("Fetched Quote Data:", data);  // ✅ 在 Console 里检查数据
@@ -12,7 +12,6 @@ function fetchRandomQuote() {
             const quote = quoteData.q;   // 名言
             const author = quoteData.a;  // 作者
 
-            // 更新 HTML 页面
             document.getElementById("quote-container").innerHTML = `
                 <blockquote>
                     <p>"${quote}"</p>
@@ -25,4 +24,5 @@ function fetchRandomQuote() {
             document.getElementById("quote-container").innerHTML = `<p>⚠️ 获取名言失败，请稍后再试。</p>`;
         });
 }
+
 
