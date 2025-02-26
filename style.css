@@ -22,7 +22,7 @@ header {
 /* Main Layout - Using Grid for better responsiveness */
 main {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr;
     gap: 20px;
     padding: 20px;
     max-width: 1200px;
@@ -36,13 +36,16 @@ main {
     border-radius: 10px;
     text-align: center;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 /* Image Styling */
 .About img {
     width: 100%;
-    max-width: 200px;
-    border-radius: 50%;
+    max-width: 100%;
+    border-radius: 10px;
 }
 
 /* Button Styling */
@@ -69,7 +72,7 @@ button:hover {
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 10px;
-    max-width: 300px;
+    max-width: 100%;
     background-color: #f9f9f9;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
@@ -95,8 +98,8 @@ footer {
 
 /* Responsive Design Adjustments */
 @media (max-width: 768px) {
-    main {
-        grid-template-columns: 1fr;
+    .About, .Contact, .Weather {
+        width: 95%;
     }
 }
 
@@ -105,7 +108,7 @@ footer {
         padding: 10px;
     }
     .About img {
-        max-width: 150px;
+        max-width: 100%;
     }
     button {
         font-size: 14px;
