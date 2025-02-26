@@ -43,13 +43,13 @@ main {
     width: 100%;
     max-width: 200px;
     border-radius: 50%;
-    filter: grayscale(80%); /* 让图片变成 80% 灰度 */
-    transition: filter 0.5s ease-in-out;
+    transition: filter 1s ease-in-out;
 }
 
 .about img:hover {
-    filter: grayscale(0%); /* 鼠标悬停时恢复原色 */
+    transform: rotate3d(1, 1, 0, 180deg); /* 沿 X 轴和 Y 轴 3D 旋转 */
 }
+
 
 
 /* 页脚 */
