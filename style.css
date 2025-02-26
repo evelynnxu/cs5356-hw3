@@ -51,6 +51,22 @@ main {
 }
 
 
+/* 按钮样式 */
+#fetch-quote {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+#fetch-quote:hover {
+    background-color: #0056b3;
+}
+
 /* 名言展示区域 */
 #quote-container {
     font-size: 18px;
