@@ -22,7 +22,7 @@ header {
 /* 主体内容 */
 main {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr; /* 让所有 section 垂直排列 */
     gap: 20px;
     padding: 20px;
     max-width: 1200px;
@@ -30,7 +30,7 @@ main {
 }
 
 /* 个人信息区域 */
-.about {
+.about, .contact, .comments {
     background: white;
     padding: 20px;
     border-radius: 10px;
