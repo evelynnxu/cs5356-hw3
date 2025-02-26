@@ -30,7 +30,7 @@ main {
 }
 
 /* 个人信息区域 */
-.about, .contact, .comments {
+.About, .Contact, .Quotes {
     background: white;
     padding: 20px;
     border-radius: 10px;
@@ -51,48 +51,27 @@ main {
 }
 
 
-/* 按钮样式 */
-#fetch-user {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    margin: 20px 0;
+/* 名言展示区域 */
+#quote-container {
+    font-size: 18px;
+    text-align: center;
+    margin-top: 20px;
+    max-width: 600px;
 }
 
-#fetch-user:hover {
-    background-color: #0056b3;
-}
-
-/* 用户卡片 */
-.user-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    max-width: 300px;
-    background-color: #f9f9f9;
-}
-
-.user-card img {
-    width: 100px;
-    border-radius: 50%;
-}
-
-.user-card h2 {
-    margin: 10px 0;
-}
-
-.user-card p {
-    font-size: 14px;
+blockquote {
+    font-style: italic;
     color: #555;
+    border-left: 4px solid #007bff;
+    padding-left: 15px;
+    margin: 20px auto;
 }
 
+cite {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
 
 /* 页脚 */
 footer {

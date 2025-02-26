@@ -1,28 +1,22 @@
 // 监听按钮点击事件
-document.getElementById("fetch-user").addEventListener("click", fetchRandomUser);
+document.getElementById("fetch-quote").addEventListener("click", fetchRandomQuote);
 
-// 从 API 获取随机用户数据
-function fetchRandomUser() {
-    fetch("https://randomuser.me/api/")
+// 从 API 获取随机名言
+function fetchRandomQuote() {
+    fetch("https://api.quotable.io/random")
         .then(response => response.json())  // 解析 JSON
         .then(data => {
-            const user = data.results[0];  // 获取 API 返回的第一个用户
-
-            // 解析用户信息
-            const name = `${user.name.first} ${user.name.last}`;
-            const picture = user.picture.large;
-            const email = user.email;
-            const location = `${user.location.city}, ${user.location.country}`;
+            // 提取名言和作者
+            const quote = data.content;
+            const author = data.author;
 
             // 更新 HTML 页面
-            document.getElementById("user-container").innerHTML = `
-                <div class="user-card">
-                    <img src="${picture}" alt="User Picture">
-                    <h2>${name}</h2>
-                    <p>Email: ${email}</p>
-                    <p>Location: ${location}</p>
-                </div>
+            document.getElementById("quote-container").innerHTML = `
+                <blockquote>
+                    <p>"${quote}"</p>
+                    <cite>- ${author}</cite>
+                </blockquote>
             `;
         })
-        .catch(error => console.error("Error fetching user:", error));
+        .catch(error => console.error("Error fetching quote:", error));
 }
