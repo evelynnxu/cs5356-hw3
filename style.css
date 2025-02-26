@@ -51,6 +51,48 @@ main {
 }
 
 
+/* 按钮样式 */
+#fetch-user {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+#fetch-user:hover {
+    background-color: #0056b3;
+}
+
+/* 用户卡片 */
+.user-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    max-width: 300px;
+    background-color: #f9f9f9;
+}
+
+.user-card img {
+    width: 100px;
+    border-radius: 50%;
+}
+
+.user-card h2 {
+    margin: 10px 0;
+}
+
+.user-card p {
+    font-size: 14px;
+    color: #555;
+}
+
 
 /* 页脚 */
 footer {
